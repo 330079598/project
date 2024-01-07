@@ -8,6 +8,8 @@ import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 // svg 文件引入
 import 'virtual:svg-icons-register'
+// 引入自定义插件对象：注册整个项目的全局组件
+import globalComponent from '@/components'
 
 // 获取应用实例对象
 const app = createApp(App)
@@ -15,5 +17,7 @@ const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn,
 })
+// 安装自定义插件
+app.use(globalComponent)
 // 将应用挂在到挂在点上
 app.mount('#app')
