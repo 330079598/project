@@ -1,5 +1,5 @@
 // 通过 vue-router 插件实现模板配置
-// @ts-ignore
+// @ts-expect-error
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { constantRoute } from '@/router/routers.ts'
 

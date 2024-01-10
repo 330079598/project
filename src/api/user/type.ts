@@ -13,7 +13,10 @@ export interface ResponseData {
 }
 
 export interface LoginResponseData extends ResponseData {
-  data?: string
+  data: {
+    token: string
+    message: string
+  }
 }
 
 export interface userInfoResponseData extends ResponseData {

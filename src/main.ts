@@ -13,6 +13,7 @@ import globalComponent from '@/components'
 // 引入模板的全局样式
 import '@/styles/index.scss'
 import router from '@/router'
+import pinia from '@/store'
 
 // 获取应用实例对象
 const app = createApp(App)
@@ -24,5 +25,7 @@ app.use(ElementPlus, {
 app.use(globalComponent)
 // 注册模板路由
 app.use(router)
+//安装仓库
+app.use(pinia)
 // 将应用挂在到挂在点上
 app.mount('#app')

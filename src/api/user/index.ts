@@ -1,10 +1,14 @@
 // 统一管理用户相关接口
 import request from '@/utils/request.ts'
-import type { LoginFormData, LoginResponseData, userInfoResponseData } from '@/api/user/type.ts'
+import type {
+  LoginFormData,
+  LoginResponseData,
+  userInfoResponseData,
+} from '@/api/user/type.ts'
 
 // 统一管理接口
 enum API {
-  LOGIN_URL = '/admin/acl/index/login',
+  LOGIN_URL = '/user/login',
   USERINFO_URL = '/admin/acl/index/info',
   LOGOUT_URL = '/admin/acl/index/logout',
 }
