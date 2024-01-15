@@ -4,6 +4,9 @@ import useUserStore from '@/store/modules/user'
 import Menu from '@/layout/menu/index.vue'
 import { useRoute } from 'vue-router'
 import Tabbar from '@/layout/tabbar/index.vue'
+import useLayOutSettingStore from '@/store/modules/setting'
+
+let layOutSettingStore = useLayOutSettingStore()
 
 let $route = useRoute()
 let userStore = useUserStore()
@@ -16,6 +19,7 @@ let userStore = useUserStore()
       <!-- 展示菜单 -->
       <el-scrollbar class="scrollbar">
         <el-menu
+          :collapse="layOutSettingStore.fold"
           :default-active="$route.path"
           background-color="#001529"
           text-color="#ffff"
@@ -25,11 +29,11 @@ let userStore = useUserStore()
       </el-scrollbar>
     </div>
     <!-- 顶部导航 -->
-    <div class="layout_tabbar">
+    <div :class="{ fold: layOutSettingStore.fold }" class="layout_tabbar">
       <Tabbar />
     </div>
     <!-- 内容展示区域 -->
-    <div class="layout_main">13</div>
+    <div :class="{ fold: layOutSettingStore.fold }" class="layout_main">13</div>
   </div>
 </template>
 
@@ -37,7 +41,7 @@ let userStore = useUserStore()
 .layout_container {
   width: 100%;
   height: 100vh;
-  background: pink;
+  background: white;
 
   .layout_slider {
     width: $base-menu-width;
@@ -62,6 +66,12 @@ let userStore = useUserStore()
   left: $base-menu-width;
   width: calc(100% - $base-menu-width);
   height: $base-tabbar-height;
+  transition: all 0.3s;
+
+  &.fold {
+    width: calc(100vw - $base-menu-min-width);
+    left: $base-menu-min-width;
+  }
 }
 
 .layout_main {
@@ -73,5 +83,12 @@ let userStore = useUserStore()
   padding: 20px;
   overflow: auto;
   transition: all 0.3s;
+  background: pink;
+  transition: all 0.3s;
+
+  &.fold {
+    width: calc(100vw - $base-menu-min-width);
+    left: $base-menu-min-width;
+  }
 }
 </style>
