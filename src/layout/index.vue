@@ -4,6 +4,7 @@ import useUserStore from '@/store/modules/user'
 import Menu from '@/layout/menu/index.vue'
 import { useRoute } from 'vue-router'
 import Tabbar from '@/layout/tabbar/index.vue'
+import Main from '@/layout/main/index.vue'
 import useLayOutSettingStore from '@/store/modules/setting'
 
 let layOutSettingStore = useLayOutSettingStore()
@@ -33,7 +34,9 @@ let userStore = useUserStore()
       <Tabbar />
     </div>
     <!-- 内容展示区域 -->
-    <div :class="{ fold: layOutSettingStore.fold }" class="layout_main">13</div>
+    <div :class="{ fold: layOutSettingStore.fold }" class="layout_main">
+      <Main />
+    </div>
   </div>
 </template>
 
@@ -69,8 +72,8 @@ let userStore = useUserStore()
   transition: all 0.3s;
 
   &.fold {
-    width: calc(100vw - $base-menu-min-width);
     left: $base-menu-min-width;
+    width: calc(100vw - $base-menu-min-width);
   }
 }
 
@@ -82,13 +85,12 @@ let userStore = useUserStore()
   height: calc(100vh - $base-tabbar-height);
   padding: 20px;
   overflow: auto;
-  transition: all 0.3s;
   background: pink;
   transition: all 0.3s;
 
   &.fold {
-    width: calc(100vw - $base-menu-min-width);
     left: $base-menu-min-width;
+    width: calc(100vw - $base-menu-min-width);
   }
 }
 </style>
